@@ -1,12 +1,19 @@
 import React from 'react'
-import Form from './Form'
+import CreateForm from './CreateForm'
+import ReportTable from './ReportTable';
 
+export const hours = ['6am', '7am', '8am', '9am', '10am', 
+'11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm' ,'Totals'];
 
-function Main() {
+function Main(props) {
+  let updaterows =(data)=>{
+    props.updaterow(data)
+  }
   return (
-    <div>
-        <Form/>
-    </div>
+    <>
+    <CreateForm updaterow= {updaterows} />
+    <ReportTable data={props.data} hours={hours} />
+    </>
   )
 }
 
